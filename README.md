@@ -4,34 +4,34 @@ Este projeto oferece um ambiente de desenvolvimento Docker para aplicativos PHP 
 
 ## Estrutura de Diretórios
 
-.
-├── docker
-│   ├── mongodb
-│   │   └── mongodb-data
-│   ├── mysql
-│   │   ├── mysql-data
-│   │   └── mysql-init
-│   │       └── init.sql
-│   ├── nginx
-│   │   └── nginx.conf
-│   ├── php
-│   │   └── Dockerfile
-│   └── postgres
-│       ├── postgres-data
-│       └── postgres-init
-│           └── init.sql
-├── docker-compose.yml
-├── env-example
-├── README.md
-└── src
-    ├── config
-    ├── controllers
-    ├── models
-    ├── public
-    ├── routes
-    ├── tests
-    ├── views
-    └── wordpress
+- **docker/**
+  - **mongodb/**
+    - mongodb-data
+  - **mysql/**
+    - mysql-data
+    - **mysql-init/**
+      - init.sql
+  - **nginx/**
+    - nginx.conf
+  - **php/**
+    - Dockerfile
+  - **postgres/**
+    - **postgres-data/**
+    - **postgres-init/**
+      - init.sql
+
+- **docker-compose.yml**
+- **env-example**
+- **README.md**
+- **src/**
+  - config
+  - controllers
+  - models
+  - public
+  - routes
+  - tests
+  - views
+  - wordpress
 
 ## Instruções de Uso
 
