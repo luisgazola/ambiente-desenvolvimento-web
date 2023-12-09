@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:1.24.0
+    volumes:
+      - ./docker/nginx:/etc/nginx/conf.d
+      - ./src:/var/www/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - php
+      - mysql
+      - postgres
+      - mongodb
+    networks:
+      - lempp_network
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    image: php:8.0-fpm
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9000:9000"
+    depends_on:
+      - mysql
+      - postgres
+      - mongodb
+    networks:
+      - lempp_network
+
+  mysql:
+    image: mysql:8.0
+    env_file:
+      - .env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_CHARSET: ${MYSQL_CHARSET}
+      MYSQL_COLLATION: ${MYSQL_COLLATION}
+      MYSQL_OPTS: ${MYSQL_OPTS}
+    volumes:
+      - ./docker/mysql/mysql-init:/docker-entrypoint-initdb.d
+      - ./docker/mysql/mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - lempp_network
+
+  postgres:
+    image: postgres:16.1
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - ./docker/postgres/postgres-init:/docker-entrypoint-initdb.d
+      - ./docker/postgres/postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - lempp_network
+
+  mongodb:
+    image: mongo:4.4
+    volumes:
+      - ./docker/mongodb/mongodb-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - lempp_network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.1
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+    ports:
+      - "8888:80"
+    depends_on:
+      - mysql
+    networks:
+      - lempp_network
+
+  wordpress:
+    image: wordpress:6.4.2
+    volumes:
+      - ./src/wordpress:/var/www/html
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    networks:
+      - lempp_network
+
+networks:
+  lempp_network:

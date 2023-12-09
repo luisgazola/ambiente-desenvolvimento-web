@@ -1,0 +1,15 @@
+MYSQL_ROOT_PASSWORD=root_password
+MYSQL_DATABASE=db_wordpress
+MYSQL_USER=user
+MYSQL_PASSWORD=user_password
+MYSQL_CHARSET=utf8mb4
+MYSQL_COLLATION=utf8mb4_unicode_ci
+MYSQL_OPTS="--innodb_buffer_pool_size=256M --max_connections=100"
+
+POSTGRES_USER=user
+POSTGRES_PASSWORD=user_password
+POSTGRES_DB=db_wordpress
+
+WORDPRESS_DB_NAME=db_wordpress
+WORDPRESS_DB_USER=user
+WORDPRESS_DB_PASSWORD=user_password
