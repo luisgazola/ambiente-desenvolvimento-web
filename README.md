@@ -2,26 +2,36 @@
 
 Este projeto oferece um ambiente de desenvolvimento Docker para aplicativos PHP com WordPress, utilizando a pilha LEMPP (Linux, Nginx, MySQL, PHP, e PostgreSQL).
 
-# Estrutura de Diretórios
+## Estrutura de Diretórios
 
-- **docker/**
-  - **mysql/**
-    - **mysql-data/**
-    - **mysql-init/**
-      - init.sql
-  - **nginx/**
-    - nginx.conf
-  - **php/**
-    - Dockerfile
-  - **postgres/**
-    - **postgres-data/**
-    - **postgres-init/**
-      - init.sql
-
-- **src/**
-- **.env**
-- **docker-compose.yml**
-- **README.md**
+.
+├── docker
+│   ├── mongodb
+│   │   └── mongodb-data
+│   ├── mysql
+│   │   ├── mysql-data
+│   │   └── mysql-init
+│   │       └── init.sql
+│   ├── nginx
+│   │   └── nginx.conf
+│   ├── php
+│   │   └── Dockerfile
+│   └── postgres
+│       ├── postgres-data
+│       └── postgres-init
+│           └── init.sql
+├── docker-compose.yml
+├── env-example
+├── README.md
+└── src
+    ├── config
+    ├── controllers
+    ├── models
+    ├── public
+    ├── routes
+    ├── tests
+    ├── views
+    └── wordpress
 
 ## Instruções de Uso
 
