@@ -59,8 +59,6 @@ Este projeto oferece um ambiente de desenvolvimento Docker para aplicativos PHP 
 
 - **Aplicação Web**: [http://localhost:8080](http://localhost:8080)
 - **Wordpress**: [http://localhost:8081](http://localhost:8081)
-	- **Usuário padrão**: admin
-	- **Senha padrão**: password
 - **phpMyAdmin**: [http://localhost:8888](http://localhost:8888)
 
 ## Diretórios Importantes
@@ -70,7 +68,6 @@ Este projeto oferece um ambiente de desenvolvimento Docker para aplicativos PHP 
 
 Os seguintes comandos criam a estrutura de diretórios necessária para o projeto:
 
-	```bash
 	mkdir -p /docker/mongodb/mondodb-data
 	mkdir -p /docker/mysql/mysql-data
 	mkdir -p /docker/postgres/postgres-data
