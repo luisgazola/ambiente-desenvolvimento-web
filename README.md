@@ -70,18 +70,18 @@ Este projeto oferece um ambiente de desenvolvimento Docker para aplicativos PHP 
 
 Os seguintes comandos criam a estrutura de diretórios necessária para o projeto:
 
-```bash
-mkdir -p /docker/mongodb/mondodb-data
-mkdir -p /docker/mysql/mysql-data
-mkdir -p /docker/postgres/postgres-data
-mkdir -p /src/config
-mkdir -p /src/controllers
-mkdir -p /src/models
-mkdir -p /src/public
-mkdir -p /src/routes
-mkdir -p /src/tests
-mkdir -p /src/views
-mkdir -p /src/wordpress
+	```bash
+	mkdir -p /docker/mongodb/mondodb-data
+	mkdir -p /docker/mysql/mysql-data
+	mkdir -p /docker/postgres/postgres-data
+	mkdir -p /src/config
+	mkdir -p /src/controllers
+	mkdir -p /src/models
+	mkdir -p /src/public
+	mkdir -p /src/routes
+	mkdir -p /src/tests
+	mkdir -p /src/views
+	mkdir -p /src/wordpress
 
 ## Comandos Úteis
 
